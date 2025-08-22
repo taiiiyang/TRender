@@ -7,4 +7,10 @@ export default defineConfig({
     environment: "happy-dom", // 替换jest-electron环境
     globals: true, // 启用全局API
   },
+  browser: {
+    provider: "playwright", // or 'webdriverio'
+    enabled: true,
+    // at least one instance is required
+    instances: [{ browser: "chromium" }],
+  },
 });
