@@ -33,7 +33,6 @@ describe("axisY", () => {
       x: "25",
       y: "370",
       dy: "0.5em",
-      textContent: "0",
     });
 
     firstOf(svg, "label").toEqual({
@@ -66,7 +65,6 @@ describe("axisY", () => {
       x: "30",
       y: "25",
       dy: "-0.3em",
-      textContent: "0",
     });
 
     firstOf(svg, "label").toEqual({
@@ -106,7 +104,6 @@ describe("axisY", () => {
       x: "295",
       y: "200",
       dy: "0.5em",
-      textContent: "0",
     });
 
     firstOf(svg, "label").toBeNull();

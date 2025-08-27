@@ -7,7 +7,7 @@ export function legendSwatches(
   {
     x,
     y,
-    width = 48, // 两个色块之间的距离
+    width = 64, // 两个色块之间的距离
     marginLeft = 12, // 色块和文字的距离
     swatchSize = 10,
     fontSize = 14,
@@ -36,6 +36,7 @@ export function legendSwatches(
   for (const [i, label] of Object.entries(domain)) {
     const color = scale(label);
     const legendX = width * i;
+    console.log(legendX, "legendX");
     renderer.rect({
       x: legendX,
       y: legendY,

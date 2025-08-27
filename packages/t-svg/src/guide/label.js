@@ -33,6 +33,7 @@ export function labelBottomRight(renderer, label, tick, { fontSize, tickLength }
     text: `${label} →`,
     dy: "2em",
     textAnchor: "end",
+    class: "label",
     fontSize,
   });
 }
@@ -43,9 +44,10 @@ export function labelTopRight(renderer, label, tick, { fontSize, tickLength }) {
   renderer.text({
     x,
     y: y1,
-    text: `← ${label}`,
+    text: `${label} →`,
     dy: "-1.2em",
     textAnchor: "end",
     fontSize,
+    class: "label",
   });
 }
