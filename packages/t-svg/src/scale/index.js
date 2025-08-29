@@ -8,3 +8,4 @@ export { createThreshold } from "./threshold";
 export { createQuantize } from "./quantize";
 export { createTime } from "./time";
 export { createLog } from "./log";
+export * from "./interpolate";

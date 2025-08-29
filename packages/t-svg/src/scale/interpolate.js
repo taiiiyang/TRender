@@ -4,6 +4,7 @@ export function interpolateNumber(t, start, stop) {
 }
 
 export function interpolateColor(t, d0, d1) {
+  console.log(t, d0, d1);
   const [r0, g0, b0] = hexToRgb(d0);
   const [r1, g1, b1] = hexToRgb(d1);
   const r = interpolateNumber(t, r0, r1);

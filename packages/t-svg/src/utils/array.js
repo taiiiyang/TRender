@@ -41,9 +41,9 @@ export function ticks(min, max, count) {
   return values;
 }
 
-export function bisect(array, x, lo = 0, hi = array.length, accessor = identity) {
-  let i = lo;
-  let j = hi;
+export function bisect(array, x, low = 0, high = array.length, accessor = identity) {
+  let i = low;
+  let j = high;
   while (i < j) {
     const mid = (i + j) >>> 1;
     if (accessor(array[mid]) < x) {
