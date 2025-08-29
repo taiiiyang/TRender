@@ -1,6 +1,6 @@
 {
   "name": "@TRender/t-svg",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/dist/index.min.js",
   "module": "dist/esm/index.js",
   "scripts": {
