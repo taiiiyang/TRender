@@ -3,7 +3,7 @@ import { group } from "../utils";
 export function createStackY() {
   return ({ values, index }) => {
     const { x: X, y: Y } = values;
-    const series = X ? Array.from(group(index, (i) => X[i])) : [index];
+    const series = X ? Array.from(group(index, (i) => X[i]).values()) : [index];
 
     const newY = new Array(index.length);
     const newY1 = new Array(index.length);
