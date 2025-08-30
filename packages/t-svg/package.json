@@ -1,6 +1,12 @@
 {
   "name": "@TRender/t-svg",
   "version": "0.0.0",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/lib/index.js"
+    }
+  },
   "main": "dist/dist/index.min.js",
   "module": "dist/esm/index.js",
   "scripts": {
@@ -8,20 +14,15 @@
     "build": "vite build",
     "test": "vitest",
     "preview": "vite preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "devDependencies": {
+    "@TRender/eslint-config": "workspace:*",
     "@vitest/browser": "^3.2.4",
     "happy-dom": "^9.0.0",
     "playwright": "^1.55.0",
     "vite": "^5.0.0",
     "vitest": "^1.6.1"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/lib/index.js"
-    }
   }
 }

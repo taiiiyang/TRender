@@ -1,0 +1,3 @@
+pnpm syncpack:lint
+pnpm build
+pnpm test

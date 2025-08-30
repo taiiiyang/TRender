@@ -1,8 +1,8 @@
-import { interval, createBand, cartesian, polar } from "@TRender/t-svg";
-import { plot } from "@/utils/plot";
+import { cartesian, createBand, interval, polar } from "@TRender/t-svg";
 import { useEffect } from "react";
+import { plot } from "@/utils/plot";
 
-export default function donutRing() {
+export default function DonutRing() {
   useEffect(() => {
     plot({
       geometry: interval,

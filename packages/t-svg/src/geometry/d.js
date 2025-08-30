@@ -1,8 +1,8 @@
-import { dist, sub, angleBetween } from "../utils";
+import { angleBetween, dist, sub } from "../utils";
 
 // 二维数组
 export function line([p0, ...points]) {
-  return [["M", ...p0], ...points.map((p) => ["L", ...p])];
+  return [["M", ...p0], ...points.map(p => ["L", ...p])];
 }
 
 export function area(points) {

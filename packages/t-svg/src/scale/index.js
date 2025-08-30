@@ -1,11 +1,11 @@
-export { createLinear } from "./linear";
-export { createIdentity } from "./identity";
-export { createOrdinal } from "./ordinal";
 export { createBand } from "./band";
+export { createIdentity } from "./identity";
+export * from "./interpolate";
+export { createLinear } from "./linear";
+export { createLog } from "./log";
+export { createOrdinal } from "./ordinal";
 export { createPoint } from "./point";
 export { createQuantile } from "./quantile";
-export { createThreshold } from "./threshold";
 export { createQuantize } from "./quantize";
+export { createThreshold } from "./threshold";
 export { createTime } from "./time";
-export { createLog } from "./log";
-export * from "./interpolate";

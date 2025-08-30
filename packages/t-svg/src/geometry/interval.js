@@ -1,7 +1,7 @@
 import { createChannel, createChannels } from "./channel";
-import { channelStyles } from "./style";
-import { rect } from "./shape";
 import { createGeometry } from "./geometry";
+import { rect } from "./shape";
+import { channelStyles } from "./style";
 
 const channels = createChannels({
   x: createChannel({ name: "x", scale: "band", optional: false }),
@@ -10,7 +10,7 @@ const channels = createChannels({
 });
 
 // 可用来实现柱状图、玫瑰图
-const render = (renderer, I, scales, values, directStyles, coordinate) => {
+function render(renderer, I, scales, values, directStyles, coordinate) {
   const defaults = {
     x: 0,
     z: 0,
@@ -38,6 +38,6 @@ const render = (renderer, I, scales, values, directStyles, coordinate) => {
       y2: Y1[i],
     });
   });
-};
+}
 
 export const interval = createGeometry(channels, render);

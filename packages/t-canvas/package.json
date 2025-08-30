@@ -5,9 +5,12 @@
     "dev": "vite",
     "build": "vite build",
     "test": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "devDependencies": {
+    "@TRender/eslint-config": "workspace:*",
     "vite": "^5.0.0",
     "vitest": "^1.0.0"
   }

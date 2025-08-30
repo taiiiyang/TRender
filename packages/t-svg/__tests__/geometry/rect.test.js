@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { cartesian, polar } from "../../src/coordinate";
 import { rect } from "../../src/geometry";
 import { plot } from "./utils";
@@ -60,7 +61,7 @@ describe("rect", () => {
         x1: [1, 0.5, 1],
         y1: [0.5, 1, 1],
       },
-      get: (d) => d[0][0],
+      get: d => d[0][0],
     }).toHasAttributes({
       tagName: "CIRCLE",
       cx: "300",

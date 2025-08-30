@@ -1,6 +1,7 @@
-import { legendSwatches, legendRamp } from "../../src/guide";
-import { createOrdinal, createLinear, interpolateColor } from "../../src/scale";
+import { describe, expect, it } from "vitest";
+import { legendRamp, legendSwatches } from "../../src/guide";
 import { createRenderer } from "../../src/renderer";
+import { createLinear, createOrdinal, interpolateColor } from "../../src/scale";
 import { createDiv, mount } from "../utils";
 
 describe("legend", () => {

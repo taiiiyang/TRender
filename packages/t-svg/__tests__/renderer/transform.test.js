@@ -1,8 +1,9 @@
+import { describe, expect, it } from "vitest";
 import { createRenderer } from "../../src/renderer";
 import { createDiv, mount } from "../utils";
 
 describe("transform", () => {
-  test("Renderer should apply specified transforms and can save or restore transforms context.", () => {
+  it("renderer should apply specified transforms and can save or restore transforms context.", () => {
     const renderer = createRenderer(600, 400);
 
     renderer.save();

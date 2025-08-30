@@ -1,3 +1,3 @@
 export function createIdentity() {
-  return (x) => x;
+  return x => x;
 }

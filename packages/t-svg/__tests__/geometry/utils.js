@@ -1,3 +1,4 @@
+import { expect } from "vitest";
 import { cartesian, createCoordinate } from "../../src/coordinate";
 import { createRenderer } from "../../src/renderer";
 import { createDiv, mount } from "../utils";
@@ -12,7 +13,7 @@ export function plot({
   styles,
   geometry,
   transforms = [cartesian()],
-  get = (d) => d[0],
+  get = d => d[0],
 }) {
   const renderer = createRenderer(width, height);
   const coordinate = createCoordinate({
@@ -29,10 +30,13 @@ export function plot({
     toHasAttributes(expectedAttributes) {
       const keys = Object.keys(expectedAttributes);
       const renderedAttributes = keys.reduce(
-        (obj, key) => ((obj[key] = shape.getAttribute(key)), obj),
+        (obj, key) => {
+          obj[key] = shape.getAttribute(key);
+          return obj;
+        },
         {},
       );
-      if (keys.indexOf("tagName") !== -1) {
+      if (keys.includes("tagName")) {
         renderedAttributes.tagName = shape.tagName;
       }
       expect(renderedAttributes).toEqual(expectedAttributes);

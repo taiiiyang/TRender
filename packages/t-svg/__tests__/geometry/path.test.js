@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { path } from "../../src/geometry";
 import { plot } from "./utils";
 

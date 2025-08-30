@@ -19,10 +19,9 @@ function generateTicks(start, stop, step, reverse) {
  * @param stop
  * @param count
  * @param allowExcessive 如果为true，实际输出的tick数 >= count，否则实际输出的tick数 <= count
- * @returns
+ * @returns ticks
  */
 export function ticks(start, stop, count, allowExcessive) {
-  let reverse;
   let step;
 
   stop = Math.floor(+stop);
@@ -34,7 +33,9 @@ export function ticks(start, stop, count, allowExcessive) {
   if (start === stop) {
     return [start];
   }
-  if ((reverse = stop < start)) {
+  const reverse = stop < start;
+
+  if (reverse) {
     const n = start;
     start = stop;
     stop = n;
@@ -44,8 +45,8 @@ export function ticks(start, stop, count, allowExcessive) {
   step = Math.floor((stop - start + 1) / expectedCount);
   if (!allowExcessive) {
     while (
-      Math.ceil((stop - start + 1) / step) > count && // 估算实际的tick数量，根据数量调整step
-      expectedCount > 1
+      Math.ceil((stop - start + 1) / step) > count // 估算实际的tick数量，根据数量调整step
+      && expectedCount > 1
     ) {
       expectedCount -= 1;
       step = Math.floor((stop - start) / expectedCount);
@@ -60,21 +61,21 @@ export function ticks(start, stop, count, allowExcessive) {
  * @param start
  * @param stop
  * @param step
- * @returns
+ * @returns ticks
  */
 export function stepTicks(start, stop, step) {
-  let reverse;
-
   stop = Math.floor(+stop);
   start = Math.floor(+start);
   step = clamper(1, stop - start + 1)(Math.floor(+step));
-  if ((reverse = stop < start)) {
+  const reverse = stop < start;
+  if (reverse) {
     const n = start;
     start = stop;
     stop = n;
   }
   return generateTicks(start, stop, step, reverse);
 }
+
 export function clamper(a, b) {
   let t;
   if (a > b) {

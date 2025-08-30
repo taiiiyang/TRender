@@ -1,9 +1,10 @@
+import { describe, expect, it } from "vitest";
 import { createRenderer } from "../../src/renderer";
 import Shape from "../../src/renderer/shape";
 import { createDiv, getAttributes, mount } from "../utils";
 
 describe("shapes", () => {
-  test("shape(name, context, attributes) creates SVG elements width specified attributes and mounts it to group.", () => {
+  it("shape(name, context, attributes) creates SVG elements width specified attributes and mounts it to group.", () => {
     const renderer = createRenderer(600, 400);
     const context = { group: renderer.group() };
     const shape = new Shape(context);
@@ -21,16 +22,16 @@ describe("shapes", () => {
     expect(s.tagName).toBe("CIRCLE");
     expect(s.parentNode).toBe(renderer.group());
     expect(getAttributes(s, ["cx", "cy", "r", "fill", "stroke", "stroke-width"])).toEqual({
-      cx: "100",
-      cy: "100",
-      r: "50",
-      fill: "red",
-      stroke: "yellow",
+      "cx": "100",
+      "cy": "100",
+      "r": "50",
+      "fill": "red",
+      "stroke": "yellow",
       "stroke-width": "10",
     });
   });
 
-  test("circle() creates circle element.", () => {
+  it("circle() creates circle element.", () => {
     const renderer = createRenderer(600, 400);
 
     const circle = renderer.circle({
@@ -46,7 +47,7 @@ describe("shapes", () => {
     expect(circle.tagName).toBe("CIRCLE");
   });
 
-  test("rect() creates rect element and accepts negative width and height.", () => {
+  it("rect() creates rect element and accepts negative width and height.", () => {
     const renderer = createRenderer(600, 400);
 
     const rect = renderer.rect({
@@ -66,7 +67,7 @@ describe("shapes", () => {
     expect(rect.tagName).toBe("RECT");
   });
 
-  test("line() creates line element.", () => {
+  it("line() creates line element.", () => {
     const renderer = createRenderer(600, 400);
     const line = renderer.line({
       x1: 0,
@@ -79,7 +80,7 @@ describe("shapes", () => {
     expect(line.tagName).toBe("LINE");
   });
 
-  test("text() creates text element and sets textContent.", () => {
+  it("text() creates text element and sets textContent.", () => {
     const renderer = createRenderer(600, 400);
     const text = renderer.text({
       x: 100,
@@ -91,7 +92,7 @@ describe("shapes", () => {
     expect(text.textContent).toBe("hello world");
   });
 
-  test("path() creates path element and accepts array to specify path.", () => {
+  it("path() creates path element and accepts array to specify path.", () => {
     const renderer = createRenderer(600, 400);
     const d = [["M", 10, 10], ["L", 100, 100], ["L", 100, 10], ["Z"]];
     const path = renderer.path({

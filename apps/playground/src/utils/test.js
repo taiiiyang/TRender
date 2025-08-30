@@ -1,5 +1,5 @@
 import { createCoordinate, createRenderer } from "@TRender/t-svg";
-import { mount, createDiv } from "@/utils/dom";
+import { createDiv, mount } from "@/utils/dom";
 
 export function firstOf(svg, className) {
   const [node] = svg.getElementsByClassName(className);

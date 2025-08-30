@@ -1,7 +1,7 @@
-import { createChannel, createChannels } from "./channel";
-import { channelStyles } from "./style";
+import { createChannel } from "./channel";
 import { createGeometry } from "./geometry";
 import { path as shapePath } from "./shape";
+import { channelStyles } from "./style";
 
 const channels = {
   d: createChannel({ name: "d", optional: false, scale: "identity" }),
@@ -9,7 +9,7 @@ const channels = {
   stroke: createChannel({ name: "stroke" }),
 };
 
-const render = (renderer, I, scales, values, directStyles, coordinate) => {
+function render(renderer, I, scales, values, directStyles, coordinate) {
   const defaults = {};
   const { d: D } = values;
   return Array.from(I, (i) => {
@@ -20,6 +20,6 @@ const render = (renderer, I, scales, values, directStyles, coordinate) => {
       d: D[i],
     });
   });
-};
+}
 
 export const path = createGeometry(channels, render);

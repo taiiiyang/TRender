@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { cartesian } from "../../src/coordinate/cartesian";
 import { compose } from "../../src/utils";
 

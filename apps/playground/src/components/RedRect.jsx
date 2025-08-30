@@ -13,7 +13,7 @@ function RedRect() {
     drawRedRect(svg);
   }, [svgRef]);
 
-  return <svg ref={svgRef} width='400' height='300'></svg>;
+  return <svg ref={svgRef} width="400" height="300"></svg>;
 }
 
 export default RedRect;

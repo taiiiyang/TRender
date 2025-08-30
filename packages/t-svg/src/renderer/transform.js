@@ -1,4 +1,5 @@
-import { createSVGElement, applyTransform, mount } from "../utils";
+import { applyTransform, createSVGElement, mount } from "../utils";
+
 export default class Transform {
   constructor(context) {
     this.context = context;

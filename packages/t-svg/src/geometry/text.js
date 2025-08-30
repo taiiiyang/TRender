@@ -16,7 +16,7 @@ function render(renderer, I, scales, values, directStyles, coordinate) {
     fontSize: 14,
   };
   const { x: X, y: Y, text: T, rotate: R = [], fontSize: FS = [], fontWeight: FW = [] } = values;
-  return Array.from(I, (i) =>
+  return Array.from(I, i =>
     shapeText(renderer, coordinate, {
       ...directStyles,
       ...channelStyles(i, values),
@@ -26,8 +26,7 @@ function render(renderer, I, scales, values, directStyles, coordinate) {
       fontSize: FS[i] || defaults.fontSize,
       fontWeight: FW[i] || defaults.fontWeight,
       text: T[i],
-    }),
-  );
+    }));
 }
 
 export const text = createGeometry(channels, render);

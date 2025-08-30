@@ -1,10 +1,11 @@
+import { describe, expect, it } from "vitest";
 import { cartesian, polar, transpose } from "../../src/coordinate";
 import { interval } from "../../src/geometry";
 import { createBand } from "../../src/scale";
 import { plot } from "./utils";
 
 describe("interval", () => {
-  test("interval has expected channels", () => {
+  it("interval has expected channels", () => {
     const channels = interval.channels();
     expect(channels).toEqual({
       x: { name: "x", scale: "band", optional: false },
@@ -16,7 +17,7 @@ describe("interval", () => {
     });
   });
 
-  test("column chart for x, y, fill channels", () => {
+  it("column chart for x, y, fill channels", () => {
     plot({
       geometry: interval,
       index: [0, 1, 2],
@@ -47,7 +48,7 @@ describe("interval", () => {
     });
   });
 
-  test("stack column for y and y1 channels", () => {
+  it("stack column for y and y1 channels", () => {
     plot({
       geometry: interval,
       index: [0, 1, 2, 3, 4, 5],
@@ -78,7 +79,7 @@ describe("interval", () => {
     });
   });
 
-  test("group column for z channels", () => {
+  it("group column for z channels", () => {
     plot({
       geometry: interval,
       index: [0, 1, 2, 3, 4, 5],
@@ -115,7 +116,7 @@ describe("interval", () => {
     });
   });
 
-  test("bar for transpose", () => {
+  it("bar for transpose", () => {
     plot({
       geometry: interval,
       index: [0, 1, 2],
@@ -147,7 +148,7 @@ describe("interval", () => {
     });
   });
 
-  test("rose for polar", () => {
+  it("rose for polar", () => {
     plot({
       geometry: interval,
       index: [0, 1, 2],
@@ -177,7 +178,7 @@ describe("interval", () => {
     });
   });
 
-  test("pie for transpose, polar", () => {
+  it("pie for transpose, polar", () => {
     plot({
       geometry: interval,
       index: [0, 1, 2],

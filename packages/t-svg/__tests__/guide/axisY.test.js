@@ -1,7 +1,8 @@
+import { describe, it } from "vitest";
+import { cartesian, polar, transpose } from "../../src/coordinate";
 import { axisY } from "../../src/guide";
 import { createLinear } from "../../src/scale";
-import { cartesian, transpose, polar } from "../../src/coordinate";
-import { renderAxis, firstOf } from "./utils";
+import { firstOf, renderAxis } from "./utils";
 
 describe("axisY", () => {
   const domain = [0, 10];
@@ -30,9 +31,9 @@ describe("axisY", () => {
 
     firstOf(svg, "text").toEqual({
       "text-anchor": "end",
-      x: "25",
-      y: "370",
-      dy: "0.5em",
+      "x": "25",
+      "y": "370",
+      "dy": "0.5em",
     });
 
     firstOf(svg, "label").toEqual({
@@ -62,9 +63,9 @@ describe("axisY", () => {
 
     firstOf(svg, "text").toEqual({
       "text-anchor": "middle",
-      x: "30",
-      y: "25",
-      dy: "-0.3em",
+      "x": "30",
+      "y": "25",
+      "dy": "-0.3em",
     });
 
     firstOf(svg, "label").toEqual({
@@ -101,9 +102,9 @@ describe("axisY", () => {
 
     firstOf(svg, "text").toEqual({
       "text-anchor": "end",
-      x: "295",
-      y: "200",
-      dy: "0.5em",
+      "x": "295",
+      "y": "200",
+      "dy": "0.5em",
     });
 
     firstOf(svg, "label").toBeNull();
@@ -137,10 +138,10 @@ describe("axisY", () => {
 
     firstOf(svg, "text").toEqual({
       "text-anchor": "middle",
-      x: "0",
-      y: "0",
-      dy: "-0.5em",
-      textContent: "0",
+      "x": "0",
+      "y": "0",
+      "dy": "-0.5em",
+      "textContent": "0",
     });
 
     firstOf(svg, "label").toBeNull();

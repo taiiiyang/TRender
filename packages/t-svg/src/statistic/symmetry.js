@@ -4,17 +4,17 @@ export function createSymmetryY() {
   return ({ values, index }) => {
     const { x: X } = values;
     // 对 index 进行分组，以 x 为 key，相同 x 的所有 index 为一组
-    const series = X ? Array.from(group(index, (i) => X[i]).values()) : [index];
+    const series = X ? Array.from(group(index, i => X[i]).values()) : [index];
 
     const newValues = Object.fromEntries(
-      ["y", "y1"].filter((key) => values[key]).map((key) => [key, new Array(index.length)]),
+      ["y", "y1"].filter(key => values[key]).map(key => [key, Array.from({ length: index.length })]),
     );
 
     // 计算每个分组的平均值
-    const M = new Array(series.length);
+    const M = Array.from({ length: series.length });
 
     for (const [category, I] of Object.entries(series)) {
-      const Y = I.flatMap((i) => Object.keys(newValues).map((key) => values[key][i]));
+      const Y = I.flatMap(i => Object.keys(newValues).map(key => values[key][i]));
 
       const minY = Math.min(...Y);
       const maxY = Math.max(...Y);

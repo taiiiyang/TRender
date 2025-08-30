@@ -1,7 +1,8 @@
-import { createCoordinate, cartesian, polar } from "../../src/coordinate";
+import { describe, expect, it } from "vitest";
+import { cartesian, createCoordinate, polar } from "../../src/coordinate";
 
 describe("polar", () => {
-  test("polar()", () => {
+  it("polar()", () => {
     const c1 = createCoordinate({
       width: 300,
       height: 200,

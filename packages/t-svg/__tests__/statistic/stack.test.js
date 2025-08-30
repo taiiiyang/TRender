@@ -1,7 +1,8 @@
+import { describe, expect, it } from "vitest";
 import { createStackY } from "../../src/statistic";
 
 describe("stack", () => {
-  test("createStack", () => {
+  it("createStack", () => {
     const data = {
       index: [0, 1, 2],
       values: {

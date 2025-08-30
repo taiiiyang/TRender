@@ -36,7 +36,6 @@ export function legendSwatches(
   for (const [i, label] of Object.entries(domain)) {
     const color = scale(label);
     const legendX = width * i;
-    console.log(legendX, "legendX");
     renderer.rect({
       x: legendX,
       y: legendY,

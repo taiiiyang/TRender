@@ -1,5 +1,5 @@
-import { identity } from "../utils";
 import { createLinear } from "../scale";
+import { identity } from "../utils";
 import { ticksBottom } from "./ticks";
 // 针对连续比例尺
 
@@ -48,7 +48,7 @@ export function legendRamp(
   // ticks
   const linear = createLinear({ domain, range: [0, width] });
   const values = linear.ticks(tickCount);
-  const ticks = values.map((value) => ({
+  const ticks = values.map(value => ({
     x: value,
     y: legendY,
     text: formatter(value),

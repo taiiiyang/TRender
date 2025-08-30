@@ -11,5 +11,8 @@ export function mount(parent, child) {
 }
 
 export function getAttributes(node, attributes) {
-  return attributes.reduce((total, cur) => ((total[cur] = node.getAttribute(cur)), total), {});
+  return attributes.reduce((total, cur) => {
+    total[cur] = node.getAttribute(cur);
+    return total;
+  }, {});
 }

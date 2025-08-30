@@ -1,7 +1,8 @@
+import { describe, expect, it } from "vitest";
 import { createBinX } from "../../src/statistic";
 
 describe("binX", () => {
-  test("createBinX", () => {
+  it("createBinX", () => {
     const data = {
       index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       values: {

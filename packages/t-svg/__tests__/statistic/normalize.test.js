@@ -1,7 +1,8 @@
+import { describe, expect, it } from "vitest";
 import { createNormalizeY } from "../../src/statistic";
 
 describe("normalizeY", () => {
-  test("createNormalizeY", () => {
+  it("createNormalizeY", () => {
     const data = {
       index: [0, 1, 2],
       values: {

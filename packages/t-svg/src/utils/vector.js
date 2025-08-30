@@ -21,7 +21,8 @@ export function angleBetween(v0, v1) {
   // 求得两个角度之差
   const a0 = angle(v0);
   const a1 = angle(v1);
-  if (a0 < a1) return a1 - a0;
+  if (a0 < a1)
+    return a1 - a0;
   return Math.PI * 2 - (a0 - a1);
 }
 
@@ -36,7 +37,7 @@ export function degree(radian) {
   return (radian * 180) / Math.PI;
 }
 
-export function unique(points, x = (d) => d[0], y = (d) => d[1]) {
+export function unique(points, x = d => d[0], y = d => d[1]) {
   const overlap = (a, b) => closeTo(x(a), x(b)) && closeTo(y(a), y(b));
-  return points.filter((d, index) => points.findIndex((p) => overlap(d, p)) === index);
+  return points.filter((d, index) => points.findIndex(p => overlap(d, p)) === index);
 }

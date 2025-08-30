@@ -1,4 +1,4 @@
-import { tickStep, ticks, floor, ceil, normalize, nice } from "../utils";
+import { ceil, floor, nice, normalize, ticks, tickStep } from "../utils";
 import { interpolateNumber } from "./interpolate";
 
 export function createLinear({
@@ -13,11 +13,12 @@ export function createLinear({
 
   scale.ticks = (tickCount = 10) => ticks(d0, d1, tickCount);
   scale.nice = (tickCount = 10) => {
-    if (d0 === d1) return;
+    if (d0 === d1)
+      return;
     const step = tickStep(d0, d1, tickCount);
     [d0, d1] = nice([d0, d1], {
-      floor: (x) => floor(x, step),
-      ceil: (x) => ceil(x, step),
+      floor: x => floor(x, step),
+      ceil: x => ceil(x, step),
     });
   };
 

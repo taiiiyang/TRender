@@ -1,11 +1,11 @@
-import { translate, scale, reflectY, polar as polarT } from "./transform";
 import { curry } from "../utils";
+import { polar as polarT, reflectY, scale, translate } from "./transform";
 
 /**
  * 开始的角度：startAngle 和结束的角度 endAngle。也可以指定内半径 innerRadius 和外半径 outerRadius （范围都是：[0, 1])。
  * @param {*} transformOptions
  * @param {*} canvasOptions
- * @returns
+ * @returns transforms
  */
 function coordinate(transformOptions, canvasOptions) {
   const { width, height } = canvasOptions;

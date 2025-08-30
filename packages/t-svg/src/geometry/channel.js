@@ -1,8 +1,8 @@
-export const createChannel = ({ name, optional = true, ...options }) => {
+export function createChannel({ name, optional = true, ...options }) {
   return { name, optional, ...options };
-};
+}
 
-export const createChannels = (options = {}) => {
+export function createChannels(options = {}) {
   return {
     x: createChannel({ name: "x", optional: false }),
     y: createChannel({ name: "y", optional: false }),
@@ -10,4 +10,4 @@ export const createChannels = (options = {}) => {
     fill: createChannel({ name: "fill" }),
     ...options,
   };
-};
+}

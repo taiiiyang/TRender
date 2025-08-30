@@ -1,4 +1,5 @@
-import { createCoordinate, cartesian, transpose } from "../../src/coordinate";
+import { describe, expect, it } from "vitest";
+import { cartesian, createCoordinate, transpose } from "../../src/coordinate";
 
 describe("transpose", () => {
   it("transpose()", () => {

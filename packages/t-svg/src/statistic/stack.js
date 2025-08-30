@@ -3,10 +3,10 @@ import { group } from "../utils";
 export function createStackY() {
   return ({ values, index }) => {
     const { x: X, y: Y } = values;
-    const series = X ? Array.from(group(index, (i) => X[i]).values()) : [index];
+    const series = X ? Array.from(group(index, i => X[i]).values()) : [index];
 
-    const newY = new Array(index.length);
-    const newY1 = new Array(index.length);
+    const newY = Array.from({ length: index.length });
+    const newY1 = Array.from({ length: index.length });
 
     for (const I of series) {
       for (let i = 0, py = 0; i < I.length; py = newY[I[i]], i++) {

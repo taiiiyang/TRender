@@ -1,8 +1,8 @@
-import { groupChannelStyles } from "./style";
-import { createGeometry } from "./geometry";
-import { createChannels, createChannel } from "./channel";
 import { group } from "../utils";
+import { createChannel, createChannels } from "./channel";
+import { createGeometry } from "./geometry";
 import { area as shapeArea } from "./shape";
+import { groupChannelStyles } from "./style";
 
 const channels = createChannels({
   x1: createChannel({ name: "x1", optional: false }),
@@ -10,11 +10,11 @@ const channels = createChannels({
   z: createChannel({ name: "z" }),
 });
 
-const render = (renderer, I, scales, values, directStyles, coordinate) => {
+function render(renderer, I, scales, values, directStyles, coordinate) {
   const defaults = {};
   const { x: X, y: Y, x1: X1, y1: Y1, z: Z } = values;
-  const series = Z ? group(I, (i) => Z[i]).values() : [I];
-  return Array.from(series, (I) =>
+  const series = Z ? group(I, i => Z[i]).values() : [I];
+  return Array.from(series, I =>
     shapeArea(renderer, coordinate, {
       ...defaults,
       ...directStyles,
@@ -24,8 +24,7 @@ const render = (renderer, I, scales, values, directStyles, coordinate) => {
       Y1: Y,
       Y2: Y1,
       I,
-    }),
-  );
-};
+    }));
+}
 
 export const area = createGeometry(channels, render);
