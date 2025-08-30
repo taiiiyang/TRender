@@ -1,13 +1,14 @@
 import { identity, round } from "./helper";
 
-export function group(array, key = (d) => d) {
+export function group(array, key = d => d) {
   const keyGroups = new Map();
   for (const item of array) {
     const k = key(item);
     const g = keyGroups.get(k);
     if (g) {
       g.push(item);
-    } else {
+    }
+    else {
       keyGroups.set(k, [item]);
     }
   }
@@ -22,19 +23,23 @@ export function tickStep(min, max, count) {
   const step0 = Math.abs(max - min) / Math.max(0, count);
   let step1 = 10 ** Math.floor(Math.log(step0) / Math.LN10);
   const error = step0 / step1;
-  if (error >= e10) step1 *= 10;
-  else if (error >= e5) step1 *= 5;
-  else if (error >= e2) step1 *= 2;
+  if (error >= e10)
+    step1 *= 10;
+  else if (error >= e5)
+    step1 *= 5;
+  else if (error >= e2)
+    step1 *= 2;
   return step1;
 }
 
 export function ticks(min, max, count) {
-  if (min === max) return [min];
+  if (min === max)
+    return [min];
   const step = tickStep(min, max, count);
   const start = Math.ceil(min / step);
   const stop = Math.floor(max / step);
   const n = Math.ceil(stop - start + 1);
-  const values = new Array(n);
+  const values = Array.from({ length: n });
   for (let i = 0; i < n; i += 1) {
     values[i] = round((start + i) * step);
   }
@@ -48,7 +53,8 @@ export function bisect(array, x, low = 0, high = array.length, accessor = identi
     const mid = (i + j) >>> 1;
     if (accessor(array[mid]) < x) {
       i = mid + 1;
-    } else {
+    }
+    else {
       j = mid;
     }
   }
@@ -87,8 +93,7 @@ export function median(array, accessor = identity) {
   return (a + b) / 2;
 }
 
-// eslint-disable-next-line no-unused-vars
-export function count(array, accessor = identity) {
+export function count(array) {
   return array.length;
 }
 

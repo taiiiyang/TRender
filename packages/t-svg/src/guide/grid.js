@@ -1,7 +1,7 @@
 import { dist } from "../utils";
 
 export function gridVertical(renderer, ticks, end) {
-  const [_, y2] = end;
+  const [, y2] = end;
   ticks.forEach(({ x, y }) =>
     renderer.line({ x1: x, y1: y, x2: x, y2, stroke: "#eee", class: "grid" }),
   );
@@ -10,7 +10,7 @@ export function gridVertical(renderer, ticks, end) {
 export function gridHorizontal(renderer, ticks, end) {
   const [x2] = end;
   ticks.forEach(({ x, y }) =>
-    renderer.line({ x1: x, y1: y, x2: x2, y2: y, stroke: "#eee", class: "grid" }),
+    renderer.line({ x1: x, y1: y, x2, y2: y, stroke: "#eee", class: "grid" }),
   );
 }
 

@@ -1,13 +1,13 @@
 import { compose } from "../utils";
 
-export const createCoordinate = ({ transforms: coordinates = [], ...canvasOptions }) => {
-  const transforms = coordinates.flatMap((coordinate) => coordinate(canvasOptions));
+export function createCoordinate({ transforms: coordinates = [], ...canvasOptions }) {
+  const transforms = coordinates.flatMap(coordinate => coordinate(canvasOptions));
   const { x, y, width, height } = canvasOptions;
   const output = compose(...transforms);
 
-  output.types = transforms.map((transform) => transform.type());
+  output.types = transforms.map(transform => transform.type());
 
-  output.isPolar = () => output.types.indexOf("polar") !== -1;
+  output.isPolar = () => output.types.includes("polar");
 
   // 判断是否转置
   // 只有是奇数个 'transpose' 的时候才是转置
@@ -17,4 +17,4 @@ export const createCoordinate = ({ transforms: coordinates = [], ...canvasOption
   output.center = [x + width / 2, y + height / 2];
 
   return output;
-};
+}

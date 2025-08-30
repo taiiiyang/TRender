@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { cartesian, polar } from "../../src/coordinate";
 import { point } from "../../src/geometry";
 import { plot } from "./utils";
@@ -28,11 +29,11 @@ describe("point", () => {
         y: [0.3, 0.1, 0.4, 0.5],
       },
     }).toHasAttributes({
-      tagName: "CIRCLE",
-      cx: "120",
-      cy: "120",
+      "tagName": "CIRCLE",
+      "cx": "120",
+      "cy": "120",
       "stroke-width": "2",
-      fill: "none",
+      "fill": "none",
     });
   });
 
@@ -52,11 +53,11 @@ describe("point", () => {
         r: [20, 5, 30, 40],
       },
     }).toHasAttributes({
-      tagName: "CIRCLE",
-      cx: "120",
-      cy: "120",
-      r: "20",
-      fill: "#5B8FF9",
+      "tagName": "CIRCLE",
+      "cx": "120",
+      "cy": "120",
+      "r": "20",
+      "fill": "#5B8FF9",
       "fill-opacity": "0.5",
     });
   });
@@ -81,11 +82,11 @@ describe("point", () => {
         r: [20, 5, 30, 40],
       },
     }).toHasAttributes({
-      tagName: "CIRCLE",
-      cx: "346.97058314499196",
-      cy: "344.56059047686335",
-      r: "20",
-      fill: "#5B8FF9",
+      "tagName": "CIRCLE",
+      "cx": "346.97058314499196",
+      "cy": "344.56059047686335",
+      "r": "20",
+      "fill": "#5B8FF9",
       "fill-opacity": "0.5",
     });
   });

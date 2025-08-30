@@ -1,5 +1,5 @@
-import { createGeometry } from "./geometry";
 import { createChannel, createChannels } from "./channel";
+import { createGeometry } from "./geometry";
 import { rect as shapeRect } from "./shape";
 import { channelStyles } from "./style";
 
@@ -8,7 +8,7 @@ const channels = createChannels({
   y: createChannel({ name: "y", scale: "band", optional: false }),
 });
 
-const render = (renderer, I, scales, values, directStyles, coordinate) => {
+function render(renderer, I, scales, values, directStyles, coordinate) {
   const defaults = {};
   const { x: X, y: Y } = values;
   const { x, y } = scales;
@@ -16,7 +16,7 @@ const render = (renderer, I, scales, values, directStyles, coordinate) => {
   const width = x.bandWidth();
   const height = y.bandWidth();
 
-  return Array.from(I, (i) =>
+  return Array.from(I, i =>
     shapeRect(renderer, coordinate, {
       ...defaults,
       ...directStyles,
@@ -25,8 +25,7 @@ const render = (renderer, I, scales, values, directStyles, coordinate) => {
       y1: Y[i],
       x2: X[i] + width,
       y2: Y[i] + height,
-    }),
-  );
-};
+    }));
+}
 
 export const cell = createGeometry(channels, render);

@@ -1,6 +1,7 @@
+import { expect } from "vitest";
 import { createCoordinate } from "../../src/coordinate";
 import { createRenderer } from "../../src/renderer";
-import { mount, createDiv } from "../utils";
+import { createDiv, mount } from "../utils";
 
 export function renderAxis({ scale, transforms, axis, ...options }) {
   const coordinate = createCoordinate({

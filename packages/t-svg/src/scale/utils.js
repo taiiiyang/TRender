@@ -21,13 +21,16 @@ export function tickStep(min, max, count) {
   // 根据当前的误差改变 step1 的值，从而减少误差
   // 1. 当 m - n >= 0.85 = log(e10) 的时候，step1 * 10
   // 可以减少log(10) = 1 的误差
-  if (error >= e10) step1 *= 10;
+  if (error >= e10)
+    step1 *= 10;
   // 2. 当 0.85 > m - n >= 0.5 = log(e5) 的时候，step1 * 5
   // 可以减少 log(5) = 0.7 的误差
-  else if (error >= e5) step1 *= 5;
+  else if (error >= e5)
+    step1 *= 5;
   // 3. 当 0.5 > m - n >= 0.15 = log(e2) 的时候，step1 * 2
   // 那么可以减少 log(2) = 0.3 的误差
-  else if (error >= e2) step1 *= 2;
+  else if (error >= e2)
+    step1 *= 2;
   // 4. 当 0.15 > m - n > 0 的时候，step1 * 1
   return step1;
 }
@@ -41,7 +44,7 @@ export function ticks(min, max, count) {
   const stop = Math.floor(max / step);
   const n = Math.ceil(stop - start + 1);
   // n 不一定等于 count，所以生成的 ticks 的数量可能和指定的不一样
-  const values = new Array(n);
+  const values = Array.from({ length: n });
   for (let i = 0; i < n; i += 1) {
     values[i] = round((start + i) * step);
   }
@@ -91,7 +94,7 @@ export function band({ domain, range, padding }) {
   return {
     step,
     bandWidth,
-    bandRange: new Array(n).fill(0).map(x),
+    bandRange: Array.from({ length: x }).fill(0).map(x),
   };
 }
 

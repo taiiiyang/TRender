@@ -1,6 +1,6 @@
 export function descendants(root) {
   const nodes = [];
-  const push = (d) => nodes.push(d);
+  const push = d => nodes.push(d);
   bfs(root, push);
   return nodes;
 }

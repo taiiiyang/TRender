@@ -1,12 +1,12 @@
-import { useEffect, useRef } from "react";
 import {
-  createRenderer,
-  createLinear,
-  createCoordinate,
-  transpose,
   cartesian,
+  createCoordinate,
+  createLinear,
+  createRenderer,
   point,
+  transpose,
 } from "@TRender/t-svg";
+import { useEffect, useRef } from "react";
 
 export default function Point() {
   const svgRef = useRef();
@@ -25,10 +25,10 @@ export default function Point() {
     ];
 
     // 将对应的值提取出来
-    const H = data.map((d) => d.height);
-    const W = data.map((d) => d.weight);
+    const H = data.map(d => d.height);
+    const W = data.map(d => d.weight);
     const I = data.map((_, index) => index);
-    const extent = (d) => [Math.min(...d), Math.max(...d)];
+    const extent = d => [Math.min(...d), Math.max(...d)];
 
     // 将数据的 height 映射为点的 x 属性（这里注意 range 是 [0, 1]）
     const scaleX = createLinear({
@@ -81,11 +81,11 @@ export default function Point() {
     const p = point(renderer, I, scales, channels, styles, coordinate);
 
     const fragment = document.createDocumentFragment();
-    p.forEach((node) => fragment.appendChild(node));
+    p.forEach(node => fragment.appendChild(node));
 
     // 一次性添加所有节点
     svgRef.current?.appendChild(fragment);
   }, [svgRef]);
 
-  return <svg ref={svgRef} width='600' height='600'></svg>;
+  return <svg ref={svgRef} width="600" height="600"></svg>;
 }

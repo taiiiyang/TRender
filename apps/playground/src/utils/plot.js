@@ -1,4 +1,4 @@
-import { createRenderer, createCoordinate, cartesian } from "@TRender/t-svg";
+import { cartesian, createCoordinate, createRenderer } from "@TRender/t-svg";
 import { createDiv, mount } from "./dom";
 
 export function plot({

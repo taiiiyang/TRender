@@ -1,5 +1,5 @@
-import { createLinear, transpose, cartesian, axisX, axisY } from "@TRender/t-svg";
-import { firstOf, renderAxis } from "@/utils/test";
+import { axisX, cartesian, createLinear, transpose } from "@TRender/t-svg";
+import { renderAxis } from "@/utils/test";
 
 const domain = [0, 10];
 const scale = createLinear({
@@ -7,7 +7,7 @@ const scale = createLinear({
   range: [0, 1],
 });
 
-export default function () {
+export default function Axis() {
   renderAxis({
     scale,
     domain,

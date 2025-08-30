@@ -1,9 +1,21 @@
 {
   "name": "TRender",
-  "version": "0.0.0",
-  "description": "TRender，是一个基于图形语法的可视化框架。",
-  "main": "index.js",
   "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.4.1",
+  "description": "TRender，是一个基于图形语法的可视化框架。",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/taiiiyang/TRender#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taiiiyang/TRender.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taiiiyang/TRender/issues"
+  },
+  "keywords": [],
+  "main": "index.js",
   "scripts": {
     "dev": "turbo dev",
     "dev:pg": "turbo dev --filter @TRender/playground",
@@ -11,27 +23,27 @@
     "test:svg": "turbo test --filter @TRender/t-svg",
     "test": "turbo test",
     "build": "turbo build",
-    "lint": "turbo lint",
-    "release": "changeset tag && git push origin --tags"
+    "lint": "eslint . && turbo lint",
+    "lint:fix": "eslint . --fix && turbo lint:fix",
+    "release": "changeset tag && git push origin --tags",
+    "prepare": "husky",
+    "syncpack:lint": "syncpack lint",
+    "syncpack:fix": "syncpack fix-mismatches"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taiiiyang/TRender.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/taiiiyang/TRender/issues"
-  },
-  "homepage": "https://github.com/taiiiyang/TRender#readme",
   "devDependencies": {
+    "@TRender/eslint-config": "workspace:*",
+    "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.6",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "eslint": "^9.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "syncpack": "^13.0.4",
     "turbo": "^2.5.5"
-  },
-  "packageManager": "pnpm@10.4.1"
+  }
 }

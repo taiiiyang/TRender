@@ -1,6 +1,6 @@
 import { createChannel, createChannels } from "./channel";
-import { channelStyles } from "./style";
 import { circle } from "./shape";
+import { channelStyles } from "./style";
 
 export function point(renderer, I, scales, channels, directStyles, coordinate) {
   const defaultStyle = {

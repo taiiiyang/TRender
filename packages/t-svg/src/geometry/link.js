@@ -1,4 +1,4 @@
-import { createChannels, createChannel } from "./channel";
+import { createChannel, createChannels } from "./channel";
 import { createGeometry } from "./geometry";
 import { link as shapeLink } from "./shape";
 import { channelStyles } from "./style";
@@ -11,7 +11,7 @@ const channels = createChannels({
 function render(renderer, I, scales, values, directStyles, coordinate) {
   const defaults = {};
   const { x: X, y: Y, x1: X1, y1: Y1 } = values;
-  return Array.from(I, (i) =>
+  return Array.from(I, i =>
     shapeLink(renderer, coordinate, {
       ...defaults,
       ...directStyles,
@@ -20,8 +20,7 @@ function render(renderer, I, scales, values, directStyles, coordinate) {
       y1: Y[i],
       x2: X1[i],
       y2: Y1[i],
-    }),
-  );
+    }));
 }
 
 export const link = createGeometry(channels, render);

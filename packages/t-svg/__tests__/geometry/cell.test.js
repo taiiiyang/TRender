@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { cartesian, polar } from "../../src/coordinate";
 import { cell } from "../../src/geometry";
 import { createBand } from "../../src/scale";

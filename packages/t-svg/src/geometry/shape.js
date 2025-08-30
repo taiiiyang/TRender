@@ -1,13 +1,13 @@
-import { line as pathLine, area as pathArea, sector as pathSector } from "./d";
+import { dist, equal, sub } from "../utils";
+import { area as pathArea, line as pathLine, sector as pathSector } from "./d";
 import { contour, ring } from "./primitive";
-import { sub, equal, dist } from "../utils";
 
-export const circle = (renderer, coordinate, { cx, cy, ...styles }) => {
+export function circle(renderer, coordinate, { cx, cy, ...styles }) {
   const [x, y] = coordinate([cx, cy]);
   return renderer.circle({ cx: x, cy: y, ...styles });
-};
+}
 
-export const text = (renderer, coordinate, { x, y, rotate, text, ...styles }) => {
+export function text(renderer, coordinate, { x, y, rotate, text, ...styles }) {
   const [px, py] = coordinate([x, y]);
   renderer.save();
   renderer.translate(px, py);
@@ -16,9 +16,9 @@ export const text = (renderer, coordinate, { x, y, rotate, text, ...styles }) =>
   const textEle = renderer.text({ x: 0, y: 0, text, ...styles });
   renderer.restore();
   return textEle;
-};
+}
 
-export const link = (renderer, coordinate, { x1, y1, x2, y2, ...style }) => {
+export function link(renderer, coordinate, { x1, y1, x2, y2, ...style }) {
   const [p0, p1] = [
     [x1, y1],
     [x2, y2],
@@ -31,20 +31,20 @@ export const link = (renderer, coordinate, { x1, y1, x2, y2, ...style }) => {
     y2: p1[1],
     ...style,
   });
-};
+}
 
-export const line = (renderer, coordinate, { X, Y, I: I0, ...style }) => {
+export function line(renderer, coordinate, { X, Y, I: I0, ...style }) {
   // 极坐标系下需要闭合，所以要把最后一个节点加上去
   const I = coordinate.isPolar() ? [...I0, I0[0]] : I0;
-  const points = I.map((i) => coordinate([X[i], Y[i]]));
+  const points = I.map(i => coordinate([X[i], Y[i]]));
   const path = pathLine(points);
   return renderer.path({ d: path, ...style });
-};
+}
 
-export const area = (renderer, coordinate, { X1, Y1, X2, Y2, I: I0, ...style }) => {
+export function area(renderer, coordinate, { X1, Y1, X2, Y2, I: I0, ...style }) {
   const I = coordinate.isPolar() ? [...I0, I0[0]] : I0;
   // 需要围成一个圈
-  const points = [...I.map((i) => [X1[i], Y1[i]]), ...I.map((i) => [X2[i], Y2[i]]).reverse()].map(
+  const points = [...I.map(i => [X1[i], Y1[i]]), ...I.map(i => [X2[i], Y2[i]]).reverse()].map(
     coordinate,
   );
   if (coordinate.isPolar()) {
@@ -52,9 +52,9 @@ export const area = (renderer, coordinate, { X1, Y1, X2, Y2, I: I0, ...style }) 
   }
 
   return renderer.path({ d: pathArea(points), ...style });
-};
+}
 
-export const rect = (renderer, coordinate, { x1, y1, x2, y2, ...styles }) => {
+export function rect(renderer, coordinate, { x1, y1, x2, y2, ...styles }) {
   const v0 = [x1, y1];
   const v1 = [x2, y1];
   const v2 = [x2, y2];
@@ -82,8 +82,8 @@ export const rect = (renderer, coordinate, { x1, y1, x2, y2, ...styles }) => {
   const r1 = dist(center, p0); // 外半径
 
   return ring(renderer, { cx, cy, r1, r2, ...styles });
-};
+}
 
-export const path = (renderer, coordinate, attributes) => {
+export function path(renderer, coordinate, attributes) {
   return renderer.path(attributes);
-};
+}

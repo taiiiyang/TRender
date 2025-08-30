@@ -1,8 +1,9 @@
+import { describe, expect, it } from "vitest";
 import { text } from "../../src/geometry";
 import { plot } from "./utils";
 
 describe("text", () => {
-  test("text has expected defaults", () => {
+  it("text has expected defaults", () => {
     const channels = text.channels();
     expect(channels).toEqual({
       x: { name: "x", optional: false },
@@ -19,7 +20,7 @@ describe("text", () => {
     });
   });
 
-  test("text for x, y, text, fontSize, rotate", () => {
+  it("text for x, y, text, fontSize, rotate", () => {
     plot({
       geometry: text,
       index: [0, 1, 2, 3],
@@ -39,11 +40,11 @@ describe("text", () => {
         y: [0.4, 0.2, 0.6, 0.9],
       },
     }).toHasAttributes({
-      tagName: "TEXT",
-      x: "0",
-      y: "0",
-      stroke: "black",
-      fill: "#5B8FF9",
+      "tagName": "TEXT",
+      "x": "0",
+      "y": "0",
+      "stroke": "black",
+      "fill": "#5B8FF9",
       "font-size": "40",
       "font-weight": "normal",
     });

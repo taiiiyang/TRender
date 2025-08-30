@@ -1,7 +1,8 @@
+import { describe, expect, it } from "vitest";
 import { createSymmetryY } from "../../src/statistic";
 
 describe("symmetryY", () => {
-  test("createSymmetryY", () => {
+  it("createSymmetryY", () => {
     const data = {
       index: [0, 1, 2],
       values: {

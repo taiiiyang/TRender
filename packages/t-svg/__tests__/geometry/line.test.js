@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { cartesian, polar } from "../../src/coordinate";
 import { line } from "../../src/geometry";
 import { plot } from "./utils";
@@ -56,7 +57,7 @@ describe("line", () => {
         y: [0.2, 0.1, 0.9, 0.2, 0.9, 0.3, 0.5, 0.9],
         z: ["a", "a", "a", "a", "b", "b", "b", "b"],
       },
-      get: (d) => d[1],
+      get: d => d[1],
     }).toHasAttributes({
       tagName: "PATH",
       d: "M 120 360 L 240 120 L 360 200 L 480 360",
@@ -92,7 +93,7 @@ describe("line", () => {
         y: [0.2, 0.1, 0.9, 0.2, 0.9, 0.3, 0.4, 0.9],
         z: ["a", "a", "a", "a", "b", "b", "b", "b"],
       },
-      get: (d) => d[1],
+      get: d => d[1],
     }).toHasAttributes({
       tagName: "PATH",
       d: "M 345.30495168499704 232.91597412837854 L 253.029416855008 344.56059047686335 L 164.00000000000003 200 L 345.30495168499704 167.08402587162146 L 345.30495168499704 232.91597412837854",

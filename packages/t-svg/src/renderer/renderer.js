@@ -62,6 +62,6 @@ export class Renderer {
   }
 }
 
-export const createRenderer = (width, height) => {
+export function createRenderer(width, height) {
   return new Renderer(width, height);
-};
+}

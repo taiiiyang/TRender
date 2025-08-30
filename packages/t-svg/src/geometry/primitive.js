@@ -1,4 +1,4 @@
-import { line as pathLine, area as pathArea, ring as pathRing } from "./d";
+import { area as pathArea, line as pathLine, ring as pathRing } from "./d";
 
 // 绘制极坐标系 等高线
 export function contour(renderer, { points, ...styles }) {

@@ -38,16 +38,19 @@ export function createAxis(components) {
     });
 
     const labelTick = (() => {
-      if (!isOrdinal) return lastOf(ticks); // 连续性比例尺，直接取 ticks 的最后一个
+      if (!isOrdinal)
+        return lastOf(ticks); // 连续性比例尺，直接取 ticks 的最后一个
       const value = lastOf(values); // 序数比例尺，需要取 domain 的最后一个
       const [x, y] = coordinate(start(value, scale, offset * 2)); // 找到开始值，在视觉属性上即最后一个
       // 因为是最后一个，所以需要加上一个柱子的偏移值
       return { x, y };
     })();
 
-    console.log(ticks, "tick");
-    if (grid && Grid) Grid(renderer, ticks, end(coordinate)); // 格子不需要 字体的 样式
-    if (tick && Ticks) Ticks(renderer, ticks, options);
-    if (label && Label) Label(renderer, label, labelTick, options);
+    if (grid && Grid)
+      Grid(renderer, ticks, end(coordinate)); // 格子不需要 字体的 样式
+    if (tick && Ticks)
+      Ticks(renderer, ticks, options);
+    if (label && Label)
+      Label(renderer, label, labelTick, options);
   };
 }

@@ -1,6 +1,6 @@
 // src/guide/ticks.js
 
-import { degree, angle, sub, unique } from "../utils";
+import { angle, degree, sub, unique } from "../utils";
 
 // 笛卡尔坐标系，向下是 y 轴增加， 向右是 x 轴增加
 // 跟底部坐标轴垂直的 ticks 所对应的线
@@ -43,8 +43,8 @@ export function ticksLeft(renderer, ticks, { fontSize, tickLength }) {
 export function ticksCircular(renderer, ticks, { tickLength, fontSize, center }) {
   for (const { x, y, text } of unique(
     ticks,
-    (d) => d.x,
-    (d) => d.y,
+    d => d.x,
+    d => d.y,
   )) {
     const { tickRotation, textRotation } = rotationOf(center, [x, y]);
     const [x2, y2] = [0, tickLength];
