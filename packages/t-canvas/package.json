@@ -1,10 +1,10 @@
 {
   "name": "@TRender/t-canvas",
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "vitest",
     "preview": "vite preview",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
