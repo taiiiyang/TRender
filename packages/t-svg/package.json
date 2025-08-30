@@ -13,7 +13,9 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:watch": "vitest",
     "preview": "vite preview",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
