@@ -26,7 +26,7 @@ export function createViews(root, computes = {
     const { children = [], type } = node;
     const computeChildrenViews = computes[type];
     if (!computeChildrenViews)
-      return;
+      continue;
     // 计算孩子节点的区域大小
     const childrenViews = computeChildrenViews(view, node);
     if (computeChildrenViews !== computeFacetViews) {
@@ -34,7 +34,7 @@ export function createViews(root, computes = {
       for (const [i, child] of Object.entries(children)) {
         nodeView.set(child, childrenViews[i]);
       }
-      return;
+      continue;
     }
 
     // 如果是分面节点，将产生一些新的孩子节点
