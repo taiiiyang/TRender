@@ -1,1 +1,1 @@
-export { plot } from "./plot"
+export { plot } from "./plot";

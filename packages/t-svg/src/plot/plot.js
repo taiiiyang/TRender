@@ -53,13 +53,17 @@ function plotView(
   { renderer, coordinates: coordinatesOptions, geometries: geometriesOptions, guides: guidesOptions, scales: scalesOptions, width, height, x, y, paddingLeft = 45, paddingBottom = 45, paddingTop = 65, paddingRight = 45 },
 ) {
   // x，y 为视图的原点，也就是左上角
+
+  // 对每个几何元素配置调用 initialize，生成标准化的几何对象。
   const geometries = geometriesOptions.map(initialize);
   const channels = geometries.map(geometry => geometry.channels);
 
   const scalesDescriptor = inferScales(channels, scalesOptions);
   const guidesDescriptor = inferGuides(scalesDescriptor, { x, y, paddingLeft }, guidesOptions);
 
+  // 生成比例尺
   const scales = map(scalesDescriptor, create);
+  // 辅助元素
   const guides = map(guidesDescriptor, create);
 
   const transforms = inferCoordinates(coordinatesOptions).map(create);
