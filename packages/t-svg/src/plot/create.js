@@ -23,7 +23,7 @@ import {
   createThreshold,
   createTime,
 } from "../scale";
-import { createBinX, createNormalizeY, createStackY, createSymmetryY } from "../statistics";
+import { createBinX, createNormalizeY, createStackY, createSymmetryY } from "../statistic";
 import { curry } from "../utils";
 
 // 封装 guide：将 guide 函数和 options 绑定，返回一个统一的 guide 实例，方便后续调用时只需传 renderer、scale、coordinate。

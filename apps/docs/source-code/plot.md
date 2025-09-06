@@ -68,6 +68,8 @@ const typedEncodings = {
 - 确定值域
 - 确定定义域
 
+- 需要补充 options label domain range interpolate
+
 ```javascript
 const originScale =  {
 	x: "band",
