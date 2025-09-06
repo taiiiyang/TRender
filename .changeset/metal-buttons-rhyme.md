@@ -1,5 +1,5 @@
 ---
-"@TRender/t-svg": minor
+"@TRender/t-svg": patch
 ---
 
 ci: integrate changeset
