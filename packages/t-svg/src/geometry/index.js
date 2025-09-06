@@ -3,6 +3,7 @@ export * from "./cell";
 export * from "./geometry";
 export * from "./interval";
 export * from "./line";
+export * from "./link"
 export * from "./path";
 export * from "./point";
 export * from "./rect";
