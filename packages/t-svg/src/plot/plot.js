@@ -8,7 +8,7 @@ import { inferGuides } from "./guide";
 import { applyScales, inferScales } from "./scale";
 
 export function plot(root) {
-  const { width = 600, height = 400, renderer: plugin } = root;
+  const { width = 640, height = 480, renderer: plugin } = root;
   const renderer = createRenderer(width, height, plugin);
   flow(root);
   const views = createViews(root);
@@ -26,7 +26,7 @@ export function plot(root) {
       const {
         scales: s = {},
         guides: g = {},
-        coordinates: c = {},
+        coordinates: c = [],
         transforms = [],
         paddingLeft,
         paddingRight,
@@ -60,12 +60,10 @@ function plotView(
 
   const scalesDescriptor = inferScales(channels, scalesOptions);
   const guidesDescriptor = inferGuides(scalesDescriptor, { x, y, paddingLeft }, guidesOptions);
-
   // 生成比例尺
   const scales = map(scalesDescriptor, create);
   // 辅助元素
   const guides = map(guidesDescriptor, create);
-
   const transforms = inferCoordinates(coordinatesOptions).map(create);
   const coordinate = createCoordinate({
     x: x + paddingLeft,

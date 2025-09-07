@@ -14,12 +14,11 @@ export function inferScales(channels, options) {
   // 归一同 比例尺 下的通道
   const scaleChannels = group(channels.flatMap(Object.entries), ([name]) => scaleName(name));
   const scales = {};
-
-  Object.entries(scaleChannels, ([scaleName, scaleChannels]) => {
-    const channel = mergeChannels(scaleName, scaleChannels);
+  for (const [scaleName, scaleChannel] of scaleChannels) {
+    const channel = mergeChannels(scaleName, scaleChannel);
     const option = options[scaleName] ?? {};
     const type = inferScaleType(channel, option);
-    return {
+    scales[scaleName] = {
       ...option,
       ...inferScaleOption(type, channel, option),
       domain: inferScaleDomain(type, channel, option),
@@ -27,7 +26,8 @@ export function inferScales(channels, options) {
       label: inferScaleLabel(type, channel, option), // label 会在 guide 创建时传入
       type,
     };
-  });
+  }
+
   return scales;
 }
 
@@ -117,7 +117,7 @@ function mergeChannels(name, channels) {
   const values = [];
   let scale = null;
   let field = null; // 作用的字段
-  for (const { values: v = [], scale: s, field: f } of channels) {
+  for (const [, { values: v = [], scale: s, field: f }] of channels) {
     values.push(...v);
     scale = scale ?? s;
     field = field ?? f;

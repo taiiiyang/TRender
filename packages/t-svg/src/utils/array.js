@@ -1,5 +1,6 @@
 import { identity, round } from "./helper";
 
+// 对数组进行分组，根据 key 分组，值为数组
 export function group(array, key = d => d) {
   const keyGroups = new Map();
   for (const item of array) {

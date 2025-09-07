@@ -1,7 +1,7 @@
 // geometry 调用时，会去校验是否已经传入了对应的通道值
 export function createGeometry(channels, render) {
   /**
-   * @param {Renderer} renderer 渲染引擎
+   * @param {render} renderer 渲染引擎
    * @param {number []} I 索引数组
    * @param {[key:string] Scale} scales 每个通道用到的 scale
    * @param {[key:string]: number[]} values 每个通道需要渲染的值

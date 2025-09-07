@@ -21,7 +21,7 @@ const inferEncodingMap = {
   area: compose(maybeGroup, maybeZeroY1, maybeIdentityX, maybeFill),
   link: compose(maybeIdentityX, maybeStroke),
   point: compose(maybeStroke, maybeZeroY),
-  rect: compose(maybeZeroY1, maybeZeroX1, maybeFill),
+  rect: compose(maybeZeroY, maybeZeroY1, maybeZeroX1, maybeFill),
   cell: compose(maybeFill),
 };
 
@@ -31,19 +31,17 @@ export function inferEncodings(type, data, encodings) {
     value: encodingValue,
   }));
 
-  inferEncodingMap[type]?.(typedEncodings);
-
-  return typedEncodings;
+  return inferEncodingMap[type]?.(typedEncodings) ?? typedEncodings;
 }
 
 // 根据不同类型获取通道值
-export function valueOf(data, { type, encodingValue }) {
+export function valueOf(data, { type, value }) {
   if (type === ENCODING_TYPES.TRANSFORM)
-    return data.map(encodingValue);
+    return data.map(value);
   if (type === ENCODING_TYPES.VALUE) {
-    return data.map(() => encodingValue);
+    return data.map(() => value);
   }
-  return data.map(d => d[encodingValue]);
+  return data.map(d => d[value]);
 }
 
 // 推断 encoding 类型
@@ -69,11 +67,11 @@ function isStyle(name) {
   return ["fill", "stroke"].includes(name);
 }
 
-function maybeFill(fill = color(), ...rest) {
+function maybeFill({ fill = color(), ...rest }) {
   return { fill, ...rest };
 }
 
-function maybeZeroX(x = zero(), ...rest) {
+function maybeZeroX({ x = zero(), ...rest }) {
   return { x, ...rest };
 }
 
@@ -81,19 +79,19 @@ function maybeIdentityX({ x, x1 = x, ...rest }) {
   return { x, x1, ...rest };
 }
 
-function maybeZeroY(y = zero(), ...rest) {
+function maybeZeroY({ y = zero(), ...rest }) {
   return { y, ...rest };
 }
 
-function maybeStroke(stroke = color(), ...rest) {
+function maybeStroke({ stroke = color(), ...rest }) {
   return { stroke, ...rest };
 }
 
-function maybeZeroX1(x1 = zero(), ...rest) {
+function maybeZeroX1({ x1 = zero(), ...rest }) {
   return { x1, ...rest };
 }
 
-function maybeZeroY1(y1 = zero(), ...rest) {
+function maybeZeroY1({ y1 = zero(), ...rest }) {
   return { y1, ...rest };
 }
 
@@ -102,7 +100,15 @@ function maybeGroup({ fill, stroke, z, ...rest }) {
     z = maybeField(fill);
   if (!z)
     z = maybeField(stroke);
-  return { fill, stroke, z, ...rest };
+
+  const group = { fill, stroke, z, ...rest };
+  if (group.fill === undefined)
+    delete group.fill;
+  if (group.stroke === undefined)
+    delete group.stroke;
+  if (group.z === undefined)
+    delete group.z;
+  return group;
 }
 
 function maybeField(encoding) {

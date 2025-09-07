@@ -35,7 +35,7 @@ function createGuide(guide, options) {
 function createScaleQ(creator, options) {
   const { nice = true, tickCount = 10 } = options;
   const scale = creator(options);
-  if (nice) {
+  if (nice && typeof scale.nice === "function") {
     scale.nice(tickCount);
   }
   return scale;
@@ -96,6 +96,20 @@ export function create(options) {
 
   if (Object.keys(geometries).includes(type)) {
     return geometries[type];
+  }
+
+  if (type === "facet") {
+    // 手动创建一个 分面 的统计函数
+    const facet = () => {};
+    facet.channels = () => ({
+      x: { name: "x", optional: true },
+      y: { name: "y", optional: true },
+    });
+    return facet;
+  }
+
+  if (!producerMap[type]) {
+    throw new Error(`Unknown node type: ${options.type}`);
   }
 
   return producerMap[type](rest);
