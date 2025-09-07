@@ -7,7 +7,7 @@ export function legendSwatches(
   {
     x,
     y,
-    width = 70, // 两个色块之间的距离
+    width = 64, // 两个色块之间的距离
     marginLeft = 12, // 色块和文字的距离
     swatchSize = 10,
     fontSize = 14,
