@@ -1,11 +1,12 @@
-import Axis from "@/components/Axis";
+import Interval from "@/components/Interval";
 
 export default function Home() {
   return (
     <div>
       {/* <Point /> */}
       {/* <DonutRing /> */}
-      <Axis />
+      {/* <Axis /> */}
+      <Interval />
     </div>
   );
 }

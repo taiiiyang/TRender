@@ -94,7 +94,7 @@ export function band({ domain, range, padding }) {
   return {
     step,
     bandWidth,
-    bandRange: Array.from({ length: x }).fill(0).map(x),
+    bandRange: Array.from({ length: n }).fill(0).map(x),
   };
 }
 

@@ -1,5 +1,4 @@
 ---
-"@TRender/playground": patch
 "@TRender/t-svg": patch
 ---
 

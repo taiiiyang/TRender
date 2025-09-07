@@ -2,4 +2,4 @@
 "@TRender/t-svg": patch
 ---
 
-ci: integrate changeset
+feat: implement plot function
