@@ -2,10 +2,10 @@ import {
   cartesian,
   createCoordinate,
   createLinear,
-  createRenderer,
   point,
   transpose,
-} from "@TRender/t-svg";
+} from "@tinyvis/t-chart";
+import { createRenderer } from "@tinyvis/t-render";
 import { useEffect, useRef } from "react";
 
 export default function Point() {
@@ -15,7 +15,7 @@ export default function Point() {
     const width = 8000;
     const height = 4000;
 
-    const renderer = createRenderer(width, height);
+    const renderer = createRenderer({ width, height });
 
     // 希望绘制一个散点图来看下面数据的分布
     const data = [

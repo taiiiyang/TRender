@@ -1,26 +1,25 @@
 {
-  "name": "TRender",
+  "name": "TinyVis",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@10.4.1",
-  "description": "TRender，是一个基于图形语法的可视化框架。",
-  "author": "",
+  "description": "TinyVis，轻量级的图表渲染库",
+  "author": "taiiiyang",
   "license": "ISC",
-  "homepage": "https://github.com/taiiiyang/TRender#readme",
+  "homepage": "https://github.com/taiiiyang/TinyVis#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taiiiyang/TRender.git"
+    "url": "git+https://github.com/taiiiyang/TinyVis.git"
   },
   "bugs": {
-    "url": "https://github.com/taiiiyang/TRender/issues"
+    "url": "https://github.com/taiiiyang/TinyVis/issues"
   },
   "keywords": [],
   "main": "index.js",
   "scripts": {
     "dev": "turbo dev",
-    "dev:pg": "turbo dev --filter @TRender/playground",
-    "dev:docs": "turbo dev --filter @TRender/docs",
-    "test:svg": "turbo test --filter @TRender/t-svg",
+    "dev:pg": "turbo dev --filter @tinyvis/playground",
+    "dev:docs": "turbo dev --filter @tinyvis/docs",
     "test": "turbo test",
     "build": "turbo build",
     "lint": "eslint . && turbo lint",
@@ -35,15 +34,22 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@TRender/eslint-config": "workspace:*",
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@tinyvis/eslint-config": "workspace:*",
     "eslint": "^9.32.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "syncpack": "^13.0.4",
     "turbo": "^2.5.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/node": "^20.19.0",
+      "@vitest/browser": "^3.2.4",
+      "vitest": "^3.2.4"
+    }
   }
 }

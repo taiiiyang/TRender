@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "TRender",
-  description: "TRender's docs",
+  title: "TinyVis",
+  description: "TinyVis's docs",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -25,7 +25,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/taiiiyang/TRender' }
+      { icon: 'github', link: 'https://github.com/taiiiyang/TinyVis' }
     ]
   }
 })

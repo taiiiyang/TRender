@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "TRender"
+  name: "TinyVis"
   text: "原生的基于 SVG 图表渲染引擎"
   tagline:
   actions:

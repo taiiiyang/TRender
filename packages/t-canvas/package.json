@@ -1,17 +1,14 @@
 {
-  "name": "@TRender/t-canvas",
+  "name": "@tinyvis/t-canvas",
   "type": "module",
   "version": "0.0.0",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "vite build --watch",
-    "build": "vite build",
-    "preview": "vite preview",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
   "devDependencies": {
-    "@TRender/eslint-config": "workspace:*",
-    "vite": "^7.0.6",
-    "vitest": "^1.6.1"
+    "@tinyvis/eslint-config": "workspace:*",
+    "@tinyvis/t-utils": "workspace:*"
   }
 }
