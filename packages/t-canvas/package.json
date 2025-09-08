@@ -1,7 +1,7 @@
 {
   "name": "@tinyvis/t-canvas",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint",

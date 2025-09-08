@@ -1,4 +1,4 @@
-# @tinyvis/t-chart
+# @tinyvis/t-canvas
 
 ## 0.1.0
 
