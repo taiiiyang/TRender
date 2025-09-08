@@ -1,4 +1,4 @@
-import { cartesian, createBand, interval, polar } from "@TRender/t-svg";
+import { cartesian, createBand, interval, polar } from "@tinyvis/t-chart";
 import { useEffect } from "react";
 import { plot } from "@/utils/plot";
 

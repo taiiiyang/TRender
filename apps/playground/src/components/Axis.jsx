@@ -1,4 +1,4 @@
-import { axisX, cartesian, createLinear, transpose } from "@TRender/t-svg";
+import { axisX, cartesian, createLinear, transpose } from "@tinyvis/t-chart";
 import { renderAxis } from "@/utils/test";
 
 const domain = [0, 10];

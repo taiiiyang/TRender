@@ -1,11 +1,11 @@
-# TRender
+# TinyVis
 
-TRender，基于图形语法的可视化框架。
+TinyVis，基于图形语法的可视化框架。
 
 ## 使用方式
 
 ```js
-import { plot } from "@TRender/t-chart";
+import { plot } from "@tinyvis/t-chart";
 
 plot({
   type: "interval",

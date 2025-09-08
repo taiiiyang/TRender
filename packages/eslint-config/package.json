@@ -1,5 +1,5 @@
 {
-  "name": "@TRender/eslint-config",
+  "name": "@tinyvis/eslint-config",
   "type": "module",
   "version": "0.0.0",
   "private": true,

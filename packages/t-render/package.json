@@ -1,0 +1,17 @@
+{
+  "name": "@tinyvis/t-render",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@tinyvis/eslint-config": "workspace:*",
+    "@tinyvis/t-canvas": "workspace:*",
+    "@tinyvis/t-svg": "workspace:*",
+    "@tinyvis/t-utils": "workspace:*"
+  }
+}

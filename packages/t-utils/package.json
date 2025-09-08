@@ -1,0 +1,14 @@
+{
+  "name": "@tinyvis/t-utils",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@tinyvis/eslint-config": "workspace:*"
+  }
+}

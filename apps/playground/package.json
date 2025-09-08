@@ -1,5 +1,5 @@
 {
-  "name": "@TRender/playground",
+  "name": "@tinyvis/playground",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +10,9 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@TRender/eslint-config": "workspace:*",
-    "@TRender/t-svg": "workspace:*",
+    "@tinyvis/eslint-config": "workspace:*",
+    "@tinyvis/t-chart": "workspace:*",
+    "@tinyvis/t-utils": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

@@ -1,7 +1,7 @@
-import { plot } from "@TRender/t-svg";
+import { plot } from "@tinyvis/t-chart";
+import { createDiv, mount } from "@tinyvis/t-utils";
 import { useEffect } from "react";
 import { sports } from "@/constants/data";
-import { createDiv, mount } from "@/utils/dom";
 
 export default function Interval() {
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { config } from "@TRender/eslint-config/base";
+import { config } from "@tinyvis/eslint-config/base";
 
 export default config.append({
   ignores: ["apps/**/*", "packages/**/*", "node_modules/**/*", "dist/**/*", ".turbo/**/*"],

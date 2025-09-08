@@ -1,3 +1,3 @@
-import { config } from "@TRender/eslint-config/react";
+import { config } from "@tinyvis/eslint-config/react";
 
 export default config;

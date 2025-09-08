@@ -1,3 +1,3 @@
-import { config } from "@TRender/eslint-config/canvas";
+import { config } from "@tinyvis/eslint-config/canvas";
 
 export default config;
